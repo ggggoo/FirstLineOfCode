@@ -12,19 +12,20 @@ repository  仓库，版本库。Git将管理里面的所有文件。
 
 ## 查看
 ```
-git status                       查看哪些文件被修改、提交
-git diff <文件名.后缀>    查看修改内容（工作区和暂存区） 
-git diff --cached <文件名.后缀>    查看修改内容（暂存区和分支） 
+git status  查看哪些文件被修改、提交
+git diff <文件名.后缀>   查看修改内容（工作区和暂存区） 
+git diff --cached <文件名.后缀>  查看修改内容（暂存区和分支） 
 git log --pretty=oneline  查看日志（简要）
-git log --graph         分支合并图
-cat <文件名.后缀>         查看文件内容
-git reflog                       查看历史命令
+git log --graph  分支合并图
+cat <文件名.后缀>  查看文件内容
+git reflog   查看历史命令
 ```
 
 ## 撤销
 ```
 git reset <commit.id>  版本回退。HEAD表示当前版本，HEAD^前一个版本，依此类推；
-                                   HEAD~100表示前100个版本。
+                        HEAD~100表示前100个版本。
+git revert <commit.id> 版本回退。不会新增一个提交
 git reset HEAD <文件名.后缀>   把暂存区的修改撤销掉，重新放回工作区                   
 git checkout -- <文件名.后缀>  撤销工作区的文件修改
 ```
@@ -64,6 +65,5 @@ git stash drop   删除stash
 ## 附录
 ![git分支1](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支1.png)
 ![git分支2](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支2.png)
-![git分支3](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支3.png)
 ![git分支4](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支4.png)
 ![git分支5](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支5.png)
