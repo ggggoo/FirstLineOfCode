@@ -3,7 +3,7 @@
 
 **[官方文档](https://git-scm.com/docs)**
 
- <!-- ![图片](https://image-1254288151.cos.ap-beijing.myqcloud.com/QQ%E6%88%AA%E5%9B%BE20180321164647.png) -->
+![图片](https://image-1254288151.cos.ap-beijing.myqcloud.com/QQ%E6%88%AA%E5%9B%BE20180321164647.png)
 
 ## git用语
 ```
@@ -67,3 +67,10 @@ git stash drop   删除stash
 ![git分支2](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支2.png)
 ![git分支4](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支4.png)
 ![git分支5](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支5.png)
+
+## 删除remote的文件（同时保留本地的）
+```
+git rm -r --cached .idea  --cached不会把本地的.idea删除
+git commit -m 'delete .idea dir'
+git push -u origin master
+```
