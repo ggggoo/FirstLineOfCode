@@ -42,8 +42,10 @@ git clone git@github.com:****/***.git
 
 ## 密钥管理
 ```
-ssh-keygen 生成密钥
+ssh-keygen -t rsa -b 4096 -C "your email" 生成密钥(文件名和密码默认）
+ssh -T git@github.com 测试链接
 ```
+ [关于SHH的文档](https://help.github.com/articles/connecting-to-github-with-ssh/)
 
 ## 分支
 ```
@@ -65,7 +67,7 @@ git stash drop   删除stash
 ## 附录
 ![git分支1](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支1.png)
 ![git分支2](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支2.png)
-![git分支4](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支4.png)
+![git分支4](https://image-1254288151.cos.ap-beijing.``myqcloud.com/imagepath/git分支4.png)
 ![git分支5](https://image-1254288151.cos.ap-beijing.myqcloud.com/imagepath/git分支5.png)
 
 ## 删除remote的文件（同时保留本地的）
@@ -74,3 +76,4 @@ git rm -r --cached .idea  --cached不会把本地的.idea删除
 git commit -m 'delete .idea dir'
 git push -u origin master
 ```
+
