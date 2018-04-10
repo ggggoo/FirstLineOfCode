@@ -77,3 +77,5 @@ git commit -m 'delete .idea dir'
 git push -u origin master
 ```
 
+## rebase和merge区别
+[参考文档](http://yanhaijing.com/git/2017/07/14/four-method-for-git-merge/)
