@@ -2,6 +2,7 @@
 **[参考文档](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)**
 
 **[官方文档](https://git-scm.com/docs)**
+**[中文文档](https://git-scm.com/book/zh/v2)**
 
 ![图片](https://image-1254288151.cos.ap-beijing.myqcloud.com/QQ%E6%88%AA%E5%9B%BE20180321164647.png)
 
@@ -31,7 +32,7 @@ git checkout -- <文件名.后缀>  撤销工作区的文件修改
 ```
 
 ## 增删改
-```
+``` 
 git add <文件名.后缀> 
 git rm <文件名.后缀>
 git commit -a -m "msg"
@@ -72,7 +73,7 @@ git stash drop   删除stash
 
 ## 删除remote的文件（同时保留本地的）
 ```
-git rm -r --cached .idea  --cached不会把本地的.idea删除
+git rm -r --cached .idea    --cached不会把本地的.idea删除
 git commit -m 'delete .idea dir'
 git push -u origin master
 ```

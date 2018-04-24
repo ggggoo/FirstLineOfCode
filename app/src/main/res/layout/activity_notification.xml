@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/activity_padding_vertical"
+              android:paddingEnd="@dimen/activity_padding_horizontal"
+              android:paddingStart="@dimen/activity_padding_horizontal"
+              android:paddingTop="@dimen/activity_padding_vertical">
+
+    <ListView
+        android:id="@+id/notification_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp">
+
+    </ListView>
+
+</LinearLayout>
