@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".NotificationActivity"/>
+        <activity android:name=".ipc.BinderActivity"
+            android:process=":remote"/>
     </application>
 
 </manifest>

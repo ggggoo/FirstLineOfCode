@@ -43,5 +43,6 @@ public class MainActivity extends Activity {
 
     private void addTitle() {
         addModule("Notification",NotificationActivity.class);
+        addModule("Binder",NotificationActivity.class);
     }
 }
