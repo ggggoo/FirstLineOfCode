@@ -116,7 +116,8 @@ public class NotificationActivity extends Activity {
     public void sendNotificationSound() {
         //FLAG_ONE_SHOT   表示返回的PendingIntent仅能执行一次，执行完后自动取消
         //FLAG_NO_CREATE     表示如果描述的PendingIntent不存在，并不创建相应的PendingIntent，而是返回NULL
-        //FLAG_CANCEL_CURRENT      表示相应的PendingIntent已经存在，则取消前者，然后创建新的PendingIntent，这个有利于数据保持为最新的，可以用于即时通信的通信场景
+        //FLAG_CANCEL_CURRENT      表示相应的PendingIntent已经存在，则取消前者，然后创建新的PendingIntent，
+        //                       这个有利于数据保持为最新的，可以用于即时通信的通信场景
         //FLAG_UPDATE_CURRENT     表示更新的PendingIntent
         PendingIntent pi = PendingIntent.getActivity(
                 this,
@@ -161,7 +162,8 @@ public class NotificationActivity extends Activity {
     private void createNotificationChannel(String notificationID,
                                            String notificationName,
                                            int notificationImportance) {
-        NotificationChannel notificationChannel = new NotificationChannel(notificationID, notificationName, notificationImportance);
+        NotificationChannel notificationChannel = new NotificationChannel(notificationID,
+                notificationName, notificationImportance);
         notificationChannel.setShowBadge(true);
         Objects.requireNonNull(notificationManager).createNotificationChannel(notificationChannel);
     }
@@ -175,13 +177,15 @@ public class NotificationActivity extends Activity {
         initData();
         addNotificationChannel();
         notificationItems = (ListView) findViewById(R.id.notification_listview);
-        notificationItems.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1,
+        notificationItems.setAdapter(new ArrayAdapter<String>(this,
+                android.R.layout.simple_expandable_list_item_1,
                 notificationItemNames));
         notificationItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
-                    NotificationActivity.this.getClass().getMethod(notificationOnClick.get(position)).invoke(NotificationActivity.this);
+                    NotificationActivity.this.getClass().getMethod(notificationOnClick.get(position))
+                            .invoke(NotificationActivity.this);
                 } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                     e.printStackTrace();
                 }

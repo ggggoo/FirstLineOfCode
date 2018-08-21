@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.ycdage.firstlineofcode.ipc.BinderActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class MainActivity extends Activity {
         });
     }
 
-    private void addModule(String titleName, Class<NotificationActivity> activityName) {
+    private void addModule(String titleName, Class<?> activityName) {
         mTitleName.add(titleName);
         mActivities.add(activityName);
     }
@@ -43,6 +45,6 @@ public class MainActivity extends Activity {
 
     private void addTitle() {
         addModule("Notification",NotificationActivity.class);
-        addModule("Binder",NotificationActivity.class);
+        addModule("Binder",BinderActivity.class);
     }
 }

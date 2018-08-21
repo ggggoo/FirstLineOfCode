@@ -1,0 +1,3 @@
+[submodule "learnGit"]
+	path = learnGit
+	url = https://github.com/ggggoo/learngit.git
