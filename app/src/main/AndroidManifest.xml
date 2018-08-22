@@ -17,10 +17,24 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <intent-filter>
+                <data
+                    android:host="dage"
+                    android:path="/mainActivity"
+                    android:port="2333"
+                    android:scheme="yang"
+                    />
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+            </intent-filter>
         </activity>
         <activity android:name=".NotificationActivity"/>
-        <activity android:name=".ipc.BinderActivity"
+        <activity
+            android:name=".ipc.BinderActivity"
             android:process=":remote"/>
+        <activity android:name=".screen.ScreenUtilActivity"/>
     </application>
 
 </manifest>
