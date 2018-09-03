@@ -90,6 +90,7 @@ public class FignerActivity extends Activity {
 
     private void showFingerPrintDialog(Cipher cipher) {
         FingerprintDialogFragment fragment = new FingerprintDialogFragment();
+        fragment.setCipher(cipher);
         fragment.show(getFragmentManager(), "fingerprint");
     }
 

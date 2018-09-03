@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.ycdage.firstlineofcode.fingerkey.FignerActivity;
 import com.ycdage.firstlineofcode.ipc.BinderActivity;
 import com.ycdage.firstlineofcode.screen.ScreenUtilActivity;
 
@@ -86,5 +87,6 @@ public class MainActivity extends Activity {
         addModule("Notification", NotificationActivity.class);
         addModule("Binder", BinderActivity.class);
         addModule("屏幕适配", ScreenUtilActivity.class);
+        addModule("指纹识别", FignerActivity.class);
     }
 }
