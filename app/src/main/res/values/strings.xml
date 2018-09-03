@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FirstLineOfCode</string>
+    <string name="title_activity_figner">FignerActivity</string>
 </resources>
