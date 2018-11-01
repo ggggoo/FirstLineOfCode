@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.ycdage.firstlineofcode">
 
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
@@ -17,10 +18,29 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <intent-filter>
+                <data
+                    android:host="dage"
+                    android:path="/mainActivity"
+                    android:port="2333"
+                    android:scheme="yang"/>
+
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
         </activity>
         <activity android:name=".NotificationActivity"/>
-        <activity android:name=".ipc.BinderActivity"
+        <activity
+            android:name=".ipc.BinderActivity"
             android:process=":remote"/>
+        <activity android:name=".screen.ScreenUtilActivity"/>
+        <activity
+            android:name=".fingerkey.FignerActivity"
+            android:label="@string/title_activity_figner"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
