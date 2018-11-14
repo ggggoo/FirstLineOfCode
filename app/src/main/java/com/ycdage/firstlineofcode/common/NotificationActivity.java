@@ -1,4 +1,4 @@
-package com.ycdage.firstlineofcode;
+package com.ycdage.firstlineofcode.common;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -19,6 +19,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.ycdage.firstlineofcode.MainActivity;
+import com.ycdage.firstlineofcode.R;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;

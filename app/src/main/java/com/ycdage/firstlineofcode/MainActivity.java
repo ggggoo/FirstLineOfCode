@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.ycdage.firstlineofcode.common.ImplicitIntentActivity;
+import com.ycdage.firstlineofcode.common.NotificationActivity;
 import com.ycdage.firstlineofcode.fingerkey.FignerActivity;
 import com.ycdage.firstlineofcode.ipc.BinderActivity;
 import com.ycdage.firstlineofcode.screen.ScreenUtilActivity;
@@ -22,7 +24,6 @@ public class MainActivity extends Activity {
 
     private List<String> mTitleName = new ArrayList<>();
     private List<Class<?>> mActivities = new ArrayList<>();
-    private ListView mListView;
     private int count = 1;
 
     @Override
@@ -33,7 +34,7 @@ public class MainActivity extends Activity {
         initThirdCallData(uri);
 
         addTitle();
-        mListView = findViewById(R.id.main_list);
+        ListView mListView = findViewById(R.id.main_list);
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<>(this,
                         android.R.layout.simple_expandable_list_item_1,
@@ -88,5 +89,6 @@ public class MainActivity extends Activity {
         addModule("Binder", BinderActivity.class);
         addModule("屏幕适配", ScreenUtilActivity.class);
         addModule("指纹识别", FignerActivity.class);
+        addModule("隐式Intent用法", ImplicitIntentActivity.class);
     }
 }
