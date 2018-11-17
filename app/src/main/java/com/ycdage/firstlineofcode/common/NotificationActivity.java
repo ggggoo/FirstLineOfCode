@@ -23,6 +23,8 @@ import android.widget.Toast;
 import com.ycdage.firstlineofcode.MainActivity;
 import com.ycdage.firstlineofcode.R;
 
+import com.landicorp.android.unionpay.log.LogUtils;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +54,11 @@ public class NotificationActivity extends Activity {
         addData("发送默认通知", "sendNotificationDefault");
         addData("发送响铃通知", "sendNotificationSound");
         addData("发送进度条通知", "sendNotificationProgress");
+        addData("test","test");
+    }
+
+    public void test(){
+        LogUtils.viewLogs(this);
     }
 
     public void sendNotificationProgress(){

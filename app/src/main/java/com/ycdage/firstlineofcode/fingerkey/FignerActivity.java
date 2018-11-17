@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyProperties;
+import android.support.annotation.RequiresApi;
 import android.widget.Toast;
 
 import com.ycdage.firstlineofcode.R;
@@ -70,6 +71,7 @@ public class FignerActivity extends Activity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private void initKey() {
         try {
             keyStore = KeyStore.getInstance("AndroidKeyStore");

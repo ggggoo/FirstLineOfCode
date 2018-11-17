@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="list_divider">#999999</color>
+
+    <color name="light_gray">#F5F5F5</color>
+    <color name="gray">#BEBEBE</color>
 </resources>
