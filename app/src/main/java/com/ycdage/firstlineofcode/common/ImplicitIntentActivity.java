@@ -1,13 +1,17 @@
 package com.ycdage.firstlineofcode.common;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,6 +19,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.ycdage.firstlineofcode.Constant.ConstantIntent;
+import com.ycdage.firstlineofcode.util.CheckPermissionUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -102,7 +107,7 @@ public class ImplicitIntentActivity extends BaseFlowActivity {
                 File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()
                         + "/first/" + System.currentTimeMillis() + ".jpg");
                 file.getParentFile().mkdirs();
-                Uri imageUri = Uri.fromFile(file);
+                imageUri = Uri.fromFile(file);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                 startActivityForResult(intent, ConstantIntent.TAKE_PHOTO);
             }
@@ -112,27 +117,37 @@ public class ImplicitIntentActivity extends BaseFlowActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/img";
-                if (new File(path).exists()) {
-                    try {
-                        new File(path).createNewFile();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                @SuppressLint("SimpleDateFormat")
-                String filename = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                File mTmpFile = new File(path, filename + ".jpg");
-                mTmpFile.getParentFile().mkdirs();
-                String authority = getPackageName() + ".provider";
-                imageUri = FileProvider.getUriForFile(ImplicitIntentActivity.this, authority, mTmpFile);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                startActivityForResult(intent, ConstantIntent.TAKE_PHOTO);
+                CheckPermissionUtil.checkUserPermission(ImplicitIntentActivity.this, new String[]{Manifest.permission.CAMERA},
+                        new CheckPermissionUtil.PermissionCallback() {
+                            @Override
+                            public void grantPermission() {
+                                takeProviderPhoto();
+                            }
+                        });
             }
         });
+    }
 
+    private void takeProviderPhoto(){
+        Intent intent = new Intent();
+        intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/img/first";
+        if (new File(path).exists()) {
+            try {
+                new File(path).createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        @SuppressLint("SimpleDateFormat")
+        String filename = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        File mTmpFile = new File(path, filename + ".jpg");
+        mTmpFile.getParentFile().mkdirs();
+        String authority = getPackageName() + ".fileprovider";
+        imageUri = FileProvider.getUriForFile(ImplicitIntentActivity.this, authority, mTmpFile);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        startActivityForResult(intent, ConstantIntent.TAKE_PHOTO_v7);
     }
 
     private void showPhoto(Bitmap bitmap) {
@@ -166,7 +181,7 @@ public class ImplicitIntentActivity extends BaseFlowActivity {
                 Bitmap bitmap = (Bitmap) data.getExtras().get("data");
                 showPhoto(bitmap);
                 break;
-            case ConstantIntent.TAKE_PHOTO_v7:
+            case ConstantIntent.TAKE_PHOTO:
                 showPhoto(imageUri);
                 break;
             default:
@@ -176,4 +191,14 @@ public class ImplicitIntentActivity extends BaseFlowActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (TextUtils.equals(permissions[0], Manifest.permission.CAMERA)
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+           takeProviderPhoto();
+        } else {
+            Toast.makeText(ImplicitIntentActivity.this, "未获取权限", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
