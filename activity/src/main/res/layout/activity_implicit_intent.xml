@@ -5,7 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context=".common.ImplicitIntentActivity">
+              tools:context="com.ycdage.activity.simple.ImplicitIntentActivity">
 
     <com.google.android.flexbox.FlexboxLayout
         android:id="@+id/flexbox_layout"

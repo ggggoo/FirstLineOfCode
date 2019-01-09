@@ -1,4 +1,4 @@
-package com.ycdage.firstlineofcode.Constant;
+package com.ycdage.activity.contants;
 
 public class ConstantIntent {
 

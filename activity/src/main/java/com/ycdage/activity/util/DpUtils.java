@@ -1,9 +1,9 @@
-package com.ycdage.firstlineofcode.views;
+package com.ycdage.activity.util;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
 
-public class Util {
+public class DpUtils {
 
     public static int dpToPixel(Context context, int dp) {
         if (context == null)

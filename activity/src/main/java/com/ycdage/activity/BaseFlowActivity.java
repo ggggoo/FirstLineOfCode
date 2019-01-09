@@ -1,4 +1,4 @@
-package com.ycdage.firstlineofcode.common;
+package com.ycdage.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.flexbox.FlexboxLayout;
-import com.ycdage.firstlineofcode.R;
-import com.ycdage.firstlineofcode.views.Util;
+import com.ycdage.activity.util.DpUtils;
 
 public abstract class BaseFlowActivity extends AppCompatActivity {
 
@@ -41,12 +40,12 @@ public abstract class BaseFlowActivity extends AppCompatActivity {
         tv.setTag(text);
         tv.setOnClickListener(listener);
 
-        int padding = Util.dpToPixel(this, 5);
+        int padding = DpUtils.dpToPixel(this, 5);
         tv.setPadding(padding, padding, padding, padding);
         FlexboxLayout.LayoutParams layoutParams = new FlexboxLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        int margin = Util.dpToPixel(this, 8);
+        int margin = DpUtils.dpToPixel(this, 8);
         layoutParams.setMargins(margin, margin, margin, margin);
         tv.setLayoutParams(layoutParams);
         flexboxLayout.addView(tv);

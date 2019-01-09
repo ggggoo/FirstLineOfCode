@@ -1,11 +1,10 @@
-package com.ycdage.firstlineofcode.common;
+package com.ycdage.activity.simple;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -13,17 +12,14 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.ycdage.firstlineofcode.MainActivity;
-import com.ycdage.firstlineofcode.R;
-
-import com.landicorp.android.unionpay.log.LogUtils;
+import com.landicorp.android.unionpay.log.Log;
+import com.ycdage.activity.R;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -58,7 +54,7 @@ public class NotificationActivity extends Activity {
     }
 
     public void test(){
-        LogUtils.viewLogs(this);
+        Log.viewLogs(this);
     }
 
     public void sendNotificationProgress(){
@@ -129,28 +125,28 @@ public class NotificationActivity extends Activity {
         //FLAG_CANCEL_CURRENT      表示相应的PendingIntent已经存在，则取消前者，然后创建新的PendingIntent，
         //                       这个有利于数据保持为最新的，可以用于即时通信的通信场景
         //FLAG_UPDATE_CURRENT     表示更新的PendingIntent
-        PendingIntent pi = PendingIntent.getActivity(
-                this,
-                100,
-                new Intent(NotificationActivity.this, MainActivity.class),
-                PendingIntent.FLAG_CANCEL_CURRENT
-        );
-        Notification notification = new NotificationCompat.Builder(this, "test")
-                .setContentTitle("高级通知")
-                .setContentText("收到一条语音通知")
-                .setWhen(System.currentTimeMillis())
-                .setSmallIcon(R.mipmap.icon)
-                .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE)
-                .setVibrate(new long[]{0, 300, 500, 700})
-                .setTicker("从新华社发回的消息")
-                .setVisibility(Notification.VISIBILITY_PUBLIC)
-                //android5.0加入了一种新的模式Notification的显示等级，共有三种：
-                //VISIBILITY_PUBLIC  只有在没有锁屏时会显示通知
-                //VISIBILITY_PRIVATE 任何情况都会显示通知
-                //VISIBILITY_SECRET  在安全锁和没有锁屏的情况下显示通知
-                .setContentIntent(pi)
-                .build();
-        notificationManager.notify(3, notification);
+//        PendingIntent pi = PendingIntent.getActivity(
+//                this,
+//                100,
+//                new Intent(NotificationActivity.this, MainActivity.class),
+//                PendingIntent.FLAG_CANCEL_CURRENT
+//        );
+//        Notification notification = new NotificationCompat.Builder(this, "test")
+//                .setContentTitle("高级通知")
+//                .setContentText("收到一条语音通知")
+//                .setWhen(System.currentTimeMillis())
+//                .setSmallIcon(R.mipmap.icon)
+//                .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE)
+//                .setVibrate(new long[]{0, 300, 500, 700})
+//                .setTicker("从新华社发回的消息")
+//                .setVisibility(Notification.VISIBILITY_PUBLIC)
+//                //android5.0加入了一种新的模式Notification的显示等级，共有三种：
+//                //VISIBILITY_PUBLIC  只有在没有锁屏时会显示通知
+//                //VISIBILITY_PRIVATE 任何情况都会显示通知
+//                //VISIBILITY_SECRET  在安全锁和没有锁屏的情况下显示通知
+//                .setContentIntent(pi)
+//                .build();
+//        notificationManager.notify(3, notification);
     }
 
     public void addNotificationChannel() {

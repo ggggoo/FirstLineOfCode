@@ -1,4 +1,4 @@
-package com.ycdage.firstlineofcode.common;
+package com.ycdage.activity.simple;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -18,8 +18,9 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.ycdage.firstlineofcode.Constant.ConstantIntent;
-import com.ycdage.firstlineofcode.util.CheckPermissionUtil;
+import com.ycdage.activity.BaseFlowActivity;
+import com.ycdage.activity.contants.ConstantIntent;
+import com.ycdage.activity.util.CheckPermissionUtil;
 
 import java.io.File;
 import java.io.IOException;

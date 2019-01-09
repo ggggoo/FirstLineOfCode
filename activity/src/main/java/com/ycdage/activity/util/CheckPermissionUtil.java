@@ -1,4 +1,4 @@
-package com.ycdage.firstlineofcode.util;
+package com.ycdage.activity.util;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;

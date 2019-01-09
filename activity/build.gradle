@@ -1,16 +1,16 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 26
     buildToolsVersion '27.0.3'
+
     defaultConfig {
-        applicationId "com.ycdage.firstlineofcode"
         minSdkVersion 23
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -18,23 +18,16 @@ android {
         }
     }
 
-
-    repositories {
-        flatDir {
-            dirs 'libs'
-        }
-    }
 }
-
-
-
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:design:26.1.0'
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.android.support:support-compat:26.1'
+    //android流式布局
+    implementation 'com.google.android:flexbox:1.0.0'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
-    implementation project(':activity')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    compile('com.landicorp.android:logly:1.0.3') {
+        exclude group: 'com.android.support'
+    }
+    implementation 'com.android.support:recyclerview-v7:26.+'
 }

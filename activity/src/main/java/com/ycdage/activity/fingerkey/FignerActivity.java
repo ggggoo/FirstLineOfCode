@@ -1,4 +1,4 @@
-package com.ycdage.firstlineofcode.fingerkey;
+package com.ycdage.activity.fingerkey;
 
 import android.app.Activity;
 import android.app.KeyguardManager;
@@ -10,7 +10,7 @@ import android.security.keystore.KeyProperties;
 import android.support.annotation.RequiresApi;
 import android.widget.Toast;
 
-import com.ycdage.firstlineofcode.R;
+import com.ycdage.activity.R;
 
 import java.security.KeyStore;
 

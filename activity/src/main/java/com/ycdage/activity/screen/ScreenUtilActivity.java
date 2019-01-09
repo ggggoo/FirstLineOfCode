@@ -1,4 +1,4 @@
-package com.ycdage.firstlineofcode.screen;
+package com.ycdage.activity.screen;
 
 import android.app.Activity;
 import android.os.Bundle;
