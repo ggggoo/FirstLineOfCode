@@ -12,13 +12,13 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.landicorp.android.unionpay.log.Log;
 import com.ycdage.activity.R;
 
 import java.lang.reflect.InvocationTargetException;
@@ -54,7 +54,6 @@ public class NotificationActivity extends Activity {
     }
 
     public void test(){
-        Log.viewLogs(this);
     }
 
     public void sendNotificationProgress(){

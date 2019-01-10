@@ -14,7 +14,7 @@ import com.ycdage.activity.fingerkey.FignerActivity;
 import com.ycdage.activity.screen.ScreenUtilActivity;
 import com.ycdage.activity.simple.ImplicitIntentActivity;
 import com.ycdage.activity.simple.NotificationActivity;
-import com.ycdage.activity.simple.RecyclerViewActivity;
+import com.ycdage.activity.recyclerview.RecyclerViewActivity;
 import com.ycdage.firstlineofcode.ipc.BinderActivity;
 
 import java.util.ArrayList;

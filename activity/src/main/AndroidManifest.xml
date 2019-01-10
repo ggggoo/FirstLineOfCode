@@ -22,7 +22,7 @@
             android:label="@string/title_activity_figner"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".simple.ImplicitIntentActivity"/>
-        <activity android:name="com.ycdage.activity.simple.RecyclerViewActivity"/>
+        <activity android:name="com.ycdage.activity.recyclerview.RecyclerViewActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

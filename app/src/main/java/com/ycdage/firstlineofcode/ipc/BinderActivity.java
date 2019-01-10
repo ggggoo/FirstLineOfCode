@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.RemoteException;
-import android.support.annotation.Nullable;
 
 import com.ycdage.firstlineofcode.IStudentService;
 import com.ycdage.firstlineofcode.Student;
@@ -16,7 +15,7 @@ public class BinderActivity extends Activity {
 
     private List<Student> students = new ArrayList<>();
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         IStudentService.Stub mBinder = new IStudentService.Stub() {
