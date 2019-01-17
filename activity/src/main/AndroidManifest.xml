@@ -23,6 +23,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".simple.ImplicitIntentActivity"/>
         <activity android:name="com.ycdage.activity.recyclerview.RecyclerViewActivity"/>
+        <activity android:name=".simple.HandlerUseActivity"/>
+        <activity android:name=".simple.AsyncTaskActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

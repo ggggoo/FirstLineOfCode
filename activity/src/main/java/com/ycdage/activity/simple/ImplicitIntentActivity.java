@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.ycdage.activity.BaseFlowActivity;
+import com.ycdage.activity.base.BaseFlowActivity;
 import com.ycdage.activity.contants.ConstantIntent;
 import com.ycdage.activity.util.CheckPermissionUtil;
 
@@ -32,7 +32,7 @@ public class ImplicitIntentActivity extends BaseFlowActivity {
     private Uri imageUri;
 
     @Override
-    protected void initViews() {
+    protected void addButtons() {
         createNewItemTextView("获取联系人", new View.OnClickListener() {
             @Override
             public void onClick(View v) {

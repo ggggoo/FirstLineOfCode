@@ -12,10 +12,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.ycdage.activity.fingerkey.FignerActivity;
+import com.ycdage.activity.recyclerview.RecyclerViewActivity;
 import com.ycdage.activity.screen.ScreenUtilActivity;
+import com.ycdage.activity.simple.AsyncTaskActivity;
+import com.ycdage.activity.simple.HandlerUseActivity;
 import com.ycdage.activity.simple.ImplicitIntentActivity;
 import com.ycdage.activity.simple.NotificationActivity;
-import com.ycdage.activity.recyclerview.RecyclerViewActivity;
 import com.ycdage.firstlineofcode.ipc.BinderActivity;
 
 import java.util.ArrayList;
@@ -94,5 +96,7 @@ public class MainActivity extends Activity {
         addModule("指纹识别", FignerActivity.class);
         addModule("隐式Intent用法", ImplicitIntentActivity.class);
         addModule("RecyclerView", RecyclerViewActivity.class);
+        addModule("HandlerUse", HandlerUseActivity.class);
+        addModule("AsyncTask", AsyncTaskActivity.class);
     }
 }

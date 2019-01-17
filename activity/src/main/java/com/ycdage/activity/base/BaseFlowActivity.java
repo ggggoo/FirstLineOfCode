@@ -1,4 +1,4 @@
-package com.ycdage.activity;
+package com.ycdage.activity.base;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.flexbox.FlexboxLayout;
+import com.ycdage.activity.R;
 import com.ycdage.activity.util.DpUtils;
 
 public abstract class BaseFlowActivity extends AppCompatActivity {
@@ -26,10 +27,18 @@ public abstract class BaseFlowActivity extends AppCompatActivity {
         setContentView(R.layout.activity_implicit_intent);
         flexboxLayout = findViewById(R.id.flexbox_layout);
         mLayout = findViewById(R.id.layout_bottom);
-        initViews();
+        initElement();
+        addButtons();
+        startAction();
     }
 
-    protected abstract void initViews();
+    protected void initElement() {
+    }
+
+    protected void startAction() {
+    }
+
+    protected abstract void addButtons();
 
     protected void createNewItemTextView(String text, View.OnClickListener listener) {
         TextView tv = new TextView(this);
