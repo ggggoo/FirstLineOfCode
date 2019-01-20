@@ -1,6 +1,7 @@
 package com.ycdage.activity.recyclerview;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -69,5 +70,9 @@ public class RecyclerViewActivity extends Activity {
         mLayoutManager = new StaggeredGridLayoutManager(3, OrientationHelper.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
         setRecyclerViewDatas();
+    }
+
+    public void toNext(View view){
+        startActivity(new Intent(RecyclerViewActivity.this,IMRecycleActivity.class));
     }
 }
