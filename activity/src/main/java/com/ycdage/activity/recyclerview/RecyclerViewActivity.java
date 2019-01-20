@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.View;
 
 import com.ycdage.activity.R;
@@ -27,6 +28,7 @@ public class RecyclerViewActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(this.getClass().getSimpleName(),System.currentTimeMillis()+"");
         setContentView(R.layout.activity_recycler_view);
 
         mDatas = new ArrayList<>();
@@ -54,18 +56,30 @@ public class RecyclerViewActivity extends Activity {
         mAdapter.notifyDataSetChanged();
     }
 
+    /**
+     * 设置横排
+     * @param view
+     */
     public void setHorizontal(View view) {
         mLayoutManager = new LinearLayoutManager(this, OrientationHelper.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
         setRecyclerViewDatas();
     }
 
+    /**
+     * 设置竖排
+     * @param view
+     */
     public void setVertical(View view) {
         mLayoutManager = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
         setRecyclerViewDatas();
     }
 
+    /**
+     * 设置瀑布流
+     * @param view
+     */
     public void setStaggered(View view) {
         mLayoutManager = new StaggeredGridLayoutManager(3, OrientationHelper.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
