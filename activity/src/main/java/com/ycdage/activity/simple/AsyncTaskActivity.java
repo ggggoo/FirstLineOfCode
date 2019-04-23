@@ -23,6 +23,11 @@ public class AsyncTaskActivity extends BaseFlowActivity {
     }
 
 
+    /**
+     * onPreExecute:与创建的线程一致
+     * doInBackground:子线程，不可更新ui
+     * onPostExecute、onProgressUpdate：ui，可以更新
+     */
     class MyAsyncTask extends AsyncTask<String,String,String>{
 
         @Override
@@ -41,14 +46,9 @@ public class AsyncTaskActivity extends BaseFlowActivity {
         }
 
         @Override
-        protected void onCancelled(String s) {
-            super.onCancelled(s);
-            System.out.println("onCancelled"+Thread.currentThread().getName());
-        }
-
-        @Override
         protected String doInBackground(String... strings) {
             System.out.println("doInBackground"+Thread.currentThread().getName());
+            publishProgress();
             return null;
         }
     }
