@@ -8,7 +8,8 @@ import java.math.BigDecimal;
 public class BulbSwitch {
     public static void main(String[] args) {
         long l = System.currentTimeMillis();
-        int i = bulbSwitch(99999);
+//        int i = getAllLight(99999);
+        int i = (int) Math.floor(Math.sqrt(99999));
         long l1 = System.currentTimeMillis();
         String time = new BigDecimal((l1 - l)).divide(new BigDecimal(1000)).setScale(3).toString();
         System.out.println(time + " " + i);
@@ -29,7 +30,7 @@ public class BulbSwitch {
     }
 
     private static boolean isLight(int num) {
-        if (num <= 3) {
+        if (num < 3) {
             return false;
         }
         int halfNum = num / 2;
@@ -44,6 +45,41 @@ public class BulbSwitch {
                 }
             }
         }
+        if (total % 2 == 0) {
+            System.out.println(num);
+            return true;
+        }
         return total % 2 == 0;
+    }
+
+    /**
+     * 一个数的因子是偶数亮
+     * 例如8:(2,4,8)不亮；9(3,9)亮；12(2，3，4，6，12)不亮
+     * 一个数的因子总是偶数+1，除非这个数是一个数的平方
+     *
+     * @param n
+     * @return
+     */
+    private static int getAllLight(int n) {
+        if (n < 1) {
+            return 0;
+        }
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        int i = 2;
+        do {
+            double pow = Math.pow(i, 2);
+            if (pow < n) {
+                i = i + 1;
+            } else {
+                if (pow > n) {
+                    i = i - 1;
+                }
+                break;
+            }
+        } while (true);
+        return i;
+
     }
 }
