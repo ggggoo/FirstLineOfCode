@@ -114,6 +114,17 @@ public class AddOperators {
         return res;
     }
 
+    /**
+     *
+     * @param num
+     * @param target
+     * @param curRes
+     * @param diff   非常巧妙！！
+     *               上次循环中增加的值，用于下次循环如果是乘法可直接减去这个值，并利用这个值做后续操作
+     * @param start
+     * @param curExp
+     * @param expressions
+     */
     private void help(String num, int target, long curRes, long diff, int start, String curExp, List<String> expressions) {
         if (start == num.length() && (long)target == curRes) {
             expressions.add(new String(curExp));
