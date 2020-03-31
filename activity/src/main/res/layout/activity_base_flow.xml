@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/flexbox_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:alignContent="flex_start"
+        app:alignItems="flex_start"
+        app:flexDirection="row"
+        app:flexWrap="wrap"
+        />
+
+
+    <ScrollView
+        android:id="@+id/m_scrollview"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <TextView
+            android:id="@+id/m_logcat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="12dp"
+            android:textColor="@color/list_divider"
+            android:textSize="16sp"/>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/ll_logcat"
+        android:layout_width="match_parent"
+        android:layout_above="@id/m_scrollview"
+        android:background="@color/light_gray"
+        android:layout_height="30dp">
+        <TextView
+            android:id="@+id/m_tv_logcat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="logcat"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:paddingStart="20dp"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/m_tv_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="清空"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:paddingEnd="30dp"
+            android:paddingStart="30dp"
+            android:layout_gravity="right"
+            android:gravity="center_vertical"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_center"
+        android:layout_below="@id/flexbox_layout"
+        android:layout_above="@id/ll_logcat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"/>
+
+
+</RelativeLayout>

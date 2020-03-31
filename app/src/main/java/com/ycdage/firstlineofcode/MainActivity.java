@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.ycdage.activity.fingerkey.FignerActivity;
+import com.ycdage.activity.otheruse.OtherUserActivity;
 import com.ycdage.activity.recyclerview.RecyclerViewActivity;
 import com.ycdage.activity.screen.ScreenUtilActivity;
 import com.ycdage.activity.simple.AsyncTaskActivity;
@@ -36,7 +37,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         Uri uri = getIntent().getData();
         initThirdCallData(uri);
-
         addTitle();
         ListView mListView = findViewById(R.id.main_list);
         ArrayAdapter<String> adapter =
@@ -98,5 +98,6 @@ public class MainActivity extends Activity {
         addModule("RecyclerView", RecyclerViewActivity.class);
         addModule("HandlerUse", HandlerUseActivity.class);
         addModule("AsyncTask", AsyncTaskActivity.class);
+        addModule("杂七杂八的东西", OtherUserActivity.class);
     }
 }

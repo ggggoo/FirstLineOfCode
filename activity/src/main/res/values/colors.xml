@@ -8,4 +8,5 @@
 
     <color name="light_gray">#F5F5F5</color>
     <color name="gray">#BEBEBE</color>
+    <color name="black">#000000</color>
 </resources>

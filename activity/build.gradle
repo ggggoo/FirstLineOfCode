@@ -18,6 +18,10 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -26,8 +30,9 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-
     //android流式布局
-    implementation ('com.google.android:flexbox:1.0.0')
-    implementation ('com.github.bumptech.glide:glide:3.7.0')
+    implementation 'com.google.android:flexbox:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.squareup.okhttp:okhttp:2.0.0'
+    implementation 'org.greenrobot:eventbus:3.2.0'
 }
