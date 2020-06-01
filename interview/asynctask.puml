@@ -1,0 +1,19 @@
+@startuml
+create mWorker
+rnote over mWorker : call()
+create mFuture
+mWorker -> mFuture :runnable
+rnote over mFuture : done()
+rnote over mFuture : onPreExecute()
+create SerialExecutor
+mFuture -> SerialExecutor : execute()
+rnote over SerialExecutor : ArrayDeque<Runnable> mTasks
+rnote over SerialExecutor : mTask.offer(runnable)
+rnote over SerialExecutor : scheduleNext()
+rnote over SerialExecutor : mActive = mTask.poll
+rnote over SerialExecutor : threadPool.execute(mActive)
+SerialExecutor --> mWorker:
+rnote over mWorker : doInBackground()
+rnote over mWorker,mFuture : onPostExecute:getMainLooper
+
+@enduml

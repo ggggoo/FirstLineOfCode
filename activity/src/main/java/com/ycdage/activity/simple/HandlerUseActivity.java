@@ -1,5 +1,6 @@
 package com.ycdage.activity.simple;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -10,6 +11,7 @@ import com.ycdage.activity.base.BaseFlowActivity;
 public class HandlerUseActivity extends BaseFlowActivity {
 
     private Handler handler1;
+    private int count = 0;
     @Override
     protected void addButtons() {
         createNewItemTextView("子线程1创建Handler", new View.OnClickListener() {
@@ -23,6 +25,16 @@ public class HandlerUseActivity extends BaseFlowActivity {
             @Override
             public void onClick(View v) {
                 useHandlerInThreads();
+            }
+        });
+
+        createNewItemTextView("IntentService", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+                Intent intent = new Intent(HandlerUseActivity.this,MyIntentService.class);
+                intent.putExtra("name","value = " + count);
+                startService(intent);
             }
         });
     }
